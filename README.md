@@ -37,6 +37,10 @@ Before deploying the contract, ensure you have the following:
 - Confirm the transaction in MetaMask.
 - Wait for confirmation; the contract will be deployed.
 
+#### Screenshots
+<img src="photo1.png">
+<img src="photo 2.png">
+
 ### 5. Interact with the Contract
 Once deployed, you can interact with the contract using the Remix UI:
 - **balanceOf(address)**: Check the balance of an address.
