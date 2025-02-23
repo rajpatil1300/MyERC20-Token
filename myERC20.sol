@@ -33,15 +33,18 @@ contract myERC20 {
         return true;
     }
 
-    function transferFrom(address _from,address _to,uint256 _value) public returns (bool){
-        require(_allowances[msg.sender][_from] >= _value,"Not allowed");
-        require((_balances[_from] >= _value) && (_balances[_from] >0));
-        _balances[_from] -=_value;
-        _balances[_to] += _value;
-        _allowances[msg.sender][_from] -= _value;
-        emit Transfer(_from,_to,_value);
-        return true;
-    }
+    function transferFrom(address _from, address _to, uint256 _value) public returns (bool) {
+    require(_allowances[_from][msg.sender] >= _value, "Not allowed");
+    require(_balances[_from] >= _value, "Insufficient balance");
+
+    _allowances[_from][msg.sender] -= _value;
+    _balances[_from] -= _value;
+    _balances[_to] += _value;
+
+    emit Transfer(_from, _to, _value);
+    return true;
+}
+
     
     function approve(address _spender,uint256 _value) public returns(bool){
        require(_balances[msg.sender] >= _value);
