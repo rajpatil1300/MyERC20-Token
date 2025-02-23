@@ -22,7 +22,6 @@ contract myERC20 {
     }
 
     function balanceOf(address _owner) public view returns(uint256){
-        require(_owner != address(0), "Owner address cannot be the zero address");
         return _balances[_owner];  
     }
 
